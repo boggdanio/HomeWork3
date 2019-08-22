@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="Style.css" />
     <title>Формы</title>
 </head>
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Oswald:500|PT+Sans+Narrow:700&display=swap&subset=cyrillic-ext');
+</style>
 <body>
     <article class="tabs">
 
 		<input checked id="one" name="tabs" type="radio">
-	    <label for="one">Страница регистрации</label>
+	    <label class="tab" for="one">Страница регистрации</label>
 
 	    <input id="two" name="tabs" type="radio">
-	    <label for="two">Страница Входа</label>
+	    <label class="tab" for="two">Страница Входа</label>
 
 	    <input id="three" name="tabs" type="radio"> 
-	    <label for="three">Выбор тачки</label>
+	    <label class="tab" for="three">Выбор тачки</label>
 
 	    <div class="panels">
 
@@ -25,13 +28,12 @@
 
                 <h2>Пожалуйста зарегистрируйтесь</h2>
                 
-                <form method="post" action="https://fom.in.ua/echo">
+                <form method="post" action="https://fom.in.ua/echo" style="">
 
-                    <p><input type="text" name="login"> Введите ваш email</p>
-                    <p><input type="password" name="pass1"> Введите ваш пароль</p>
-                    <p><input type="password" name="pass2"> Подтвердите пароль</p>
-                    <input type="checkbox" name="mem" id="mem-check" value="Запомнить пароль">
-                    <p><input type="submit" value="Зарегистрироваться"></p>
+                    <p><input type="text" name="new-user-login" placeholder="например ivanov@gmail.com"> Введите ваш email</p>
+                    <p><input type="password" name="new-pass" > Введите ваш пароль</p>
+                    <p><input type="password" name="new-pass-validation" required> Подтвердите пароль</p>
+                    <p><input type="submit" name="sign-up-button" value="Зарегистрироваться"></p>
 
                 </form>    
                 
@@ -42,12 +44,17 @@
 
                 <h2>Войти в систему</h2>
 
-                <form method="post" action="https://fom.in.ua/echo">
+                <form method="post" action="https://fom.in.ua/echo" style="">
 
-                    <p><input type="text" name="login"> Введите ваш email</p>
-                    <p><input type="password" name="pass1"> Введите ваш пароль</p>
-                    <p><input type="checkbox" name="mem-check" id="mem-check"> Запомнить пароль</p>
-                    
+                    <p><input type="text" name="email-login"> Введите ваш email</p>
+                    <p><input type="password" name="pass-login"> Введите ваш пароль</p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="remember-password"> Запомнить пароль
+                        </label>
+                    </p>
+                    <p><input type="submit" name="login-button" value="Войти"></p>
+
                 </form>  
 
 		    </div>
@@ -56,19 +63,100 @@
 
                 <h2>Введите интересующие вас параметры</h2>
 
-               <form method="post" action="https://fom.in.ua/echo">
+               <form method="post" action="https://fom.in.ua/echo" style="font-size: 1.1em">
 
-                    <p>Тип кузова<input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""></p>
-                    <p>Марка авто<input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""></p>
-                    <p>Страна производитель<input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""></p>
-                    <p>Цена (от и до)<input type="number" name="" id=""><input type="number" name="" id=""></p>
-                    <p>Год выпуска (от и до)<input type="number" name="" id=""><input type="number" name="" id=""></p>
-                    <p><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id="">Condition</p>
-                    <p><input type="radio" name="answer" value="a1"><input type="radio" name="answer" value="a2"><input type="radio" name="answer" value="a3">Fuel</p>
-                    <p><input type="submit"></p>
-                    <p>Тип коробки передач<input type="radio" name="" id=""><input type="radio" name="" id=""><input type="radio" name="" id=""></p>
-                    <p>Цвет<input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""></p>
-                    <p>Комфорт<input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""></p>
+                    <p>Тип кузова: <br><br>
+
+                        <label><input type="checkbox" name="frame" id="" value="u1">Универсал</label>
+                        <label><input type="checkbox" name="frame" id="" value="s1">Седан</label>
+                        <label><input type="checkbox" name="frame" id="" value="o1">Кроссовер</label>
+                        <label><input type="checkbox" name="frame" id="" value="u2">Купе</label>
+                    </p>
+
+                    <p>Марка авто: <br><br>
+
+                        <label><input type="checkbox" name="maker" id="" value="BMW">BMW</label>
+                        <label><input type="checkbox" name="maker" id="" value="Mercenaries">Mercedes</label>
+                        <label><input type="checkbox" name="maker" id="" value="Lamborgini">Lamborgini</label>
+                        <label><input type="checkbox" name="maker" id="" value="UAZ">UAZ</label>
+
+                    </p>
+
+                    <p>Страна производитель: <br><br>
+
+                        <select name="Country-maker" style="font-size: 130%; color: #555; font-family: Oswald, PT Sans Narrow">
+                            <option selected value="Ger">Германия</option>
+                            <option value="Ru">Россия</option>
+                            <option value="USA">США</option>
+                            <option value="Ita">Италия</option>
+                        </select>
+
+                    </p>
+
+                    <p><br><!-- Цена -->
+
+                        <input type="number" name="Price-min" id="" min="0" step="1" placeholder="Цена, От">
+                        <input type="number" name="Price-max" id="" step="1" placeholder="Цена, До">
+
+                    </p>
+
+                    <p><!-- Выбор года тачанки -->
+
+                        <input type="number" name="Year-min" id="" min="1960" max="2018" step="1"  placeholder="Год, От">
+                        <input type="number" name="Year-max" id="" min="1961" max="2019" step="1" placeholder="Год, До">
+
+                    </p>
+
+                    <p>Состояние: <br>
+
+                        <label><input type="checkbox" name="condition" id="" value="crashed">Бит</label>
+                        <label><input type="checkbox" name="condition" id="" value="new">Не Бит</label>
+                        <label><input type="checkbox" name="condition" id="" value="not-restricted">Не растаможен</label>
+                        <label><input type="checkbox" name="condition" id="" value="no-painted">Не крашен</label>
+
+                    </p>
+
+                    <p>Топливо: <br>
+
+                        <label><input checked type="radio" name="Fuel" value="Бензин">Бензин</label>
+                        <label><input type="radio" name="Fuel" value="Дизель">Дизель</label>
+                        <label><input type="radio" name="Fuel" value="Газ">Газ</label>
+
+                    </p>
+                    
+                    <p>Тип коробки передач: <br>
+
+                        <label><input type="radio" name="Gear" id="" value="Auto">Автомат</label>
+                        <label><input type="radio" name="Gear" id="" value="Mechanical">Механика</label>
+                        <label><input type="radio" name="Gear" id="" value="Semi-auto">Полуавтомат</label>
+
+                    </p>
+
+                    <p>Цвет: <br>
+
+                        <label><input type="checkbox" name="color" id="" value="black">Черный</label>
+                        <label><input type="checkbox" name="color" id="" value="blue">Синий</label>
+                        <label><input type="checkbox" name="color" id="" value="red"><!-- <img src="/Lesson3/images/red.jpg"  -->Красный</label>
+
+                    </p>
+
+                    <p>Комфорт: <br>
+                        
+                        <select multiple name="some-useless-sh**" style="font-size: 130%; color: #555; font-family: Oswald, PT Sans Narrow">
+                        
+                            <option disabled>Зажав Ctrl вы можете выбрать несколько опций</option>
+                            <option value="option1">Люк</option>
+                            <option value="option2">Запасное Колесо</option>
+                            <option value="option3">РГБ</option>
+                            <option value="option4">ABS</option>
+
+                        </select>
+
+                    </p>
+
+                    <p><input style="margin: 0; background: #555; width: 20em; height: 3em; font-size: 0.9em; color: #fff" type="reset" value="Сбросить"></p>
+
+                    <p><input type="submit" value="Поиск"></p>
 
                 </form>    
               
