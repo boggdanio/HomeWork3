@@ -55,7 +55,7 @@ body {
             border-radius: 0 0px 0px 0px;
             height: 100%;
             z-index: 1;
-            font: PT Sans Narrow;
+            /* font-family: PT Sans Narrow; */
             color: #555;
         }
 
@@ -81,12 +81,24 @@ body {
                 }
 
                 input[type="number"]{
+                    margin: 0;
                     width: 10em;
-                    margin: 0.05em;
                     height: 1.1em;
                     color: #555;
                     font-size: 1.1em;
                 }
+
+                /* input[type="submit"]:hover{
+                    background: #666;
+                    color: #fff;
+                    cursor: pointer;
+                }
+
+                input[type="reset"]:hover{
+                    background: #666;
+                    color: #fff;
+                    cursor: pointer;
+                } */
 
                 input[type="submit"]{
                     margin: 0;
@@ -95,9 +107,12 @@ body {
                     height: 3em;
                     color: #fff;
                     font-size: 0.9em;
+                    border: none;
+                    cursor: pointer;
                 }
 
                 select > option:hover{
                     background: #666;
                     color: #fff;
+                    cursor: pointer;
                 }
